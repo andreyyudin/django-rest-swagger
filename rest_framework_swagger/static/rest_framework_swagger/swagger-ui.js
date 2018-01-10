@@ -2401,7 +2401,7 @@ Resolver.prototype.resolve = function (spec, arg1, arg2, arg3) {
         var sharedParameters = path.parameters || [];
         var parameters = operation.parameters || [];
 
-        for (var i=0; i<sharedParameters.length; i++) {
+        for (var i = 0; i < sharedParameters.length; i++) {
           var parameter = sharedParameters[i];
           parameters.unshift(parameter);
         }
@@ -2409,7 +2409,7 @@ Resolver.prototype.resolve = function (spec, arg1, arg2, arg3) {
           operation.parameters = operation.parameters || parameters;
         }
 
-        for (var i=0; i<parameters.length; i++) {
+        for (var i = 0; i < parameters.length; i++) {
           var parameter = parameters[i];
           location = '/paths' + name + '/' + method + '/parameters';
 
