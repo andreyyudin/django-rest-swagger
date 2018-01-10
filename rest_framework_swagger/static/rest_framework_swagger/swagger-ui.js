@@ -2401,7 +2401,7 @@ Resolver.prototype.resolve = function (spec, arg1, arg2, arg3) {
         var sharedParameters = path.parameters || [];
         var parameters = operation.parameters || [];
 
-        for (i in sharedParameters) {
+        for (var i=0; i<sharedParameters.length; i++) {
           var parameter = sharedParameters[i];
           parameters.unshift(parameter);
         }
@@ -2409,7 +2409,7 @@ Resolver.prototype.resolve = function (spec, arg1, arg2, arg3) {
           operation.parameters = operation.parameters || parameters;
         }
 
-        for (i in parameters) {
+        for (var i=0; i<parameters.length; i++) {
           var parameter = parameters[i];
           location = '/paths' + name + '/' + method + '/parameters';
 
@@ -2721,7 +2721,7 @@ Resolver.prototype.finish = function (spec, root, resolutionTable, resolvedRefs,
 
         for (key in resolvedTo.obj) {
           var abs = resolvedTo.obj[key];
-          
+
           if (localResolve !== true) {
             // don't retain root for local definitions
             abs = this.retainRoot(resolvedTo.obj[key], item.root);
@@ -18275,7 +18275,7 @@ Request.prototype.type = function(type){
 };
 
 /**
- * Set responseType to `val`. Presently valid responseTypes are 'blob' and 
+ * Set responseType to `val`. Presently valid responseTypes are 'blob' and
  * 'arraybuffer'.
  *
  * Examples:
@@ -19164,7 +19164,7 @@ Emitter.prototype.hasListeners = function(event){
  * TODO: combatible error handling?
  */
 
-module.exports = function(arr, fn, initial){  
+module.exports = function(arr, fn, initial){
   var idx = 0;
   var len = arr.length;
   var curr = arguments.length == 3
@@ -19174,7 +19174,7 @@ module.exports = function(arr, fn, initial){
   while (idx < len) {
     curr = fn.call(null, curr, arr[idx], ++idx, arr);
   }
-  
+
   return curr;
 };
 },{}]},{},[1])(1)
