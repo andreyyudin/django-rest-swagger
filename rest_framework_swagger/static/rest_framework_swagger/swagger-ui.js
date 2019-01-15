@@ -2401,6 +2401,8 @@ Resolver.prototype.resolve = function (spec, arg1, arg2, arg3) {
         var sharedParameters = path.parameters || [];
         var parameters = operation.parameters || [];
 
+        // "for i in object" loops through all the enumerable properties of the object itself and those the object
+        // inherits from its constructor's prototype, so it is safer to iterate through the length
         for (var i = 0; i < sharedParameters.length; i++) {
           var parameter = sharedParameters[i];
           parameters.unshift(parameter);
